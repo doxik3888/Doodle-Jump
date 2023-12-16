@@ -1,8 +1,14 @@
 import pygame
 import os
+from scripts.functions import load_image
+from scripts.spite import Sprite
+
 class Game:
     def __init__(self):
-        self.background = pygame.image.load(os.path.join("assets","images","background.png"))
+        self.background = load_image("assets","images","background.png")
+        self.player = Sprite((200,200),load_image('assets','image','player.png')) 
 
     def render(self,surface: pygame.Surface):
         surface.blit(self.background,(0,0))
+        self.player.render(surface)
+    
