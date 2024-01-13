@@ -31,8 +31,8 @@ class App:
 
     def run(self):
         while self.running:
-            self.hundle_events()
-            self.upgrate()
+            self.handle_events()
+            self.update()
             self.render()
 
             self.clock.tick(self.maxFPS)
