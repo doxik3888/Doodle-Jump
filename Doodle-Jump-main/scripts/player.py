@@ -5,7 +5,7 @@ class Player(Sprite):
     def __init__(self, center, image, speed, jump_power, gravity):
         super().__init__(center, image)
 
-
+        self.original_image = ima
         self.jump_power = jump_power
         self.speed = speed
         self.gravity = gravity
@@ -15,6 +15,12 @@ class Player(Sprite):
         self.is_walking_right = False
         self.on_platform = False
 
+    def recet(self,center):
+        super().__init__(center,self.original_image)
+        self.velocyty_y = 0
+        self.is_walking_left = False
+        self.is_walking_right = False
+        self.on_platform = False
 
     def update(self):
         if self.on_platform:
@@ -35,5 +41,5 @@ class Player(Sprite):
         if self.rect.left > display_size[0]:
             self.rect.right = 0
 
-        def collide_sprite(self,other):
-            return super().collide_sprite(other) and self.velocity_y > 0
+    def collide_sprite(self,other):
+        return super().collide_sprite(other) and self.velocity_y > 0
